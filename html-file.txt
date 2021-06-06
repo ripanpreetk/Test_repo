@@ -3,6 +3,9 @@ Added first line
 adding second line
 adding 3rd line
 adding 4th line
+<<<<<<< HEAD
 =======
 Added first line
 >>>>>>> parent of 0187486 (Adding 2nd line)
+=======
+>>>>>>> 983707ee8480cf02340e363a933ea0cd4c69f137
