@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 Added first line
 adding second line
 adding 3rd line
+adding 4th line
+=======
+Added first line
+>>>>>>> parent of 0187486 (Adding 2nd line)
