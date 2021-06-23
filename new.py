@@ -4,5 +4,3 @@ print("yellow")
 
 def first():
     print("silly")
-
-    
