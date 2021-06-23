@@ -1,8 +1,10 @@
 print("hello")
 print("yellow")
 
+
 def first():
-  print("silly")
+    print("silly")
+  
   
 def second():
-  print("hmm")
+    print("hmm")
