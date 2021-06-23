@@ -3,4 +3,4 @@ print("yellow")
 
 
 def first():
-    print("silly")
+    print("sillyyy")
