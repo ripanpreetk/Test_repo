@@ -2,23 +2,33 @@ name: CI
 on:
   push:
      branches: [ main ]
-  schedule:
-    - cron:  '0 1 * * *'
+#   schedule:
+#     - cron:  '0 1 * * *'
   workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    
       - uses: actions/checkout@v2
       - name: Run a one-line script
-        run: echo Hello, world!
-      - name: Run a multi-line script
+        run: echo First        > other.txt
+        
+      - name: Commit files
+        id: commit
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-      - name: Lint Code Base
-        uses: github/super-linter@v4
-        env:
-          VALIDATE_ALL_CODEBASE: true
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git config --local user.email "action@github.com"
+          git config --local user.name "github-actions"
+          git add --all
+          if [-z "$(git status --porcelain)"]; then
+             echo "::set-output name=push::false"
+          else
+             git commit -m "Add changes" -a
+             echo "::set-output name=push::true"
+          fi
+        shell: bash
+      - name: Push changes
+        if: steps.commit.outputs.push == 'true'
+        uses: ad-m/github-push-action@master
+        with:
+           github_token: ${{ secrets.GITHUB_TOKEN }}
