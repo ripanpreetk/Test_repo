@@ -12,7 +12,7 @@ jobs:
     
       - uses: actions/checkout@v2
       - name: Run a one-line script
-        run: echo created this file from worlflow/actions yohooo > other.txt
+        run: echo added seconds line >> other.txt
         
       - name: Commit files
         id: commit
